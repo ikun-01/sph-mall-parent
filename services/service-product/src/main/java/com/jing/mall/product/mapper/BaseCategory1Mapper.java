@@ -2,6 +2,9 @@ package com.jing.mall.product.mapper;
 
 import com.jing.mall.product.entity.BaseCategory1;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jing.mall.weball.vo.CategoryVo;
+
+import java.util.List;
 
 /**
 * @author Jing
@@ -10,6 +13,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.jing.mall.product.entity.BaseCategory1
 */
 public interface BaseCategory1Mapper extends BaseMapper<BaseCategory1> {
+
+
+    List<CategoryVo> getCategoryTree();
 
 }
 
