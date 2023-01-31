@@ -15,4 +15,34 @@
         id,attr_name,category_id,
         category_level
     </sql>
+
+    <resultMap id="AttrInfoResult" type="com.jing.mall.product.entity.BaseAttrInfo" autoMapping="true">
+        <id column="id" property="id"/>
+        <collection property="attrValueList"
+                    ofType="com.jing.mall.product.entity.BaseAttrValue"
+                    autoMapping="true">
+            <id property="id" column="bid"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="attrInfoList" resultMap="AttrInfoResult">
+        select bai.*,bav.id bid,bav.value_name,bav.attr_id
+            from base_attr_info bai
+                left join
+                base_attr_value bav
+            on
+                bai.id = bav.attr_id
+        <where>
+            <if test="category1Id != 0">
+                (category_id = #{category1Id} and category_level = 1)
+            </if>
+            <if test="category2Id != 0">
+                or (category_id = #{category2Id} and category_level = 2)
+            </if>
+            <if test="category3Id != 0">
+                or (category_id = #{category3Id} and category_level = 3)
+            </if>
+        </where>
+    </select>
 </mapper>

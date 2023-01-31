@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * spu销售属性
@@ -37,6 +39,9 @@ public class SpuSaleAttr implements Serializable {
      */
     @TableField(value = "sale_attr_name")
     private String saleAttrName;
+
+    @TableField(exist = false)
+    private List<SpuSaleAttrValue> spuSaleAttrValueList;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

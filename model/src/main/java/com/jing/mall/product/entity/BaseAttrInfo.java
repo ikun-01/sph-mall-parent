@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 属性表
@@ -38,6 +39,10 @@ public class BaseAttrInfo implements Serializable {
      */
     @TableField(value = "category_level")
     private Integer categoryLevel;
+
+
+    @TableField(exist = false)
+    List<BaseAttrValue> attrValueList;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

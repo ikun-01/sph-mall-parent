@@ -1,4 +1,4 @@
-package com.jing.mall.common.config;
+package com.jing.mall.common.config.swagger;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;

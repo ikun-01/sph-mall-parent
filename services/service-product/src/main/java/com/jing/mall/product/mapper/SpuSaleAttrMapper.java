@@ -2,6 +2,9 @@ package com.jing.mall.product.mapper;
 
 import com.jing.mall.product.entity.SpuSaleAttr;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
 * @author Jing
@@ -11,6 +14,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface SpuSaleAttrMapper extends BaseMapper<SpuSaleAttr> {
 
+    List<SpuSaleAttr> getSpuSaleAttrList(@Param("spuId") Long spuId);
 }
 
 

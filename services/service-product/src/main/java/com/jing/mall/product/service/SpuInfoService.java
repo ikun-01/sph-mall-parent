@@ -2,6 +2,7 @@ package com.jing.mall.product.service;
 
 import com.jing.mall.product.entity.SpuInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jing.mall.product.vo.SpuInfoVo;
 
 /**
 * @author Jing
@@ -10,4 +11,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface SpuInfoService extends IService<SpuInfo> {
 
+    /**
+     * 添加spu信息
+     * @param spuInfoVo
+     */
+    void saveSpuInfo(SpuInfoVo spuInfoVo);
 }

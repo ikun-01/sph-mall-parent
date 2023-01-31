@@ -15,4 +15,27 @@
         id,spu_id,base_sale_attr_id,
         sale_attr_name
     </sql>
+
+
+    <resultMap id="spuSaleAttrResult" type="com.jing.mall.product.entity.SpuSaleAttr" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="spuSaleAttrValueList" ofType="com.jing.mall.product.entity.SpuSaleAttrValue" autoMapping="true">
+            <id property="id" column="sid"/>
+        </collection>
+    </resultMap>
+
+    <select id="getSpuSaleAttrList" resultMap="spuSaleAttrResult">
+        select ssa.*,ssav.id sid,ssav.sale_attr_value_name
+        from
+            spu_sale_attr ssa
+        left join
+            spu_sale_attr_value ssav
+        on
+            ssa.base_sale_attr_id = ssav.base_sale_attr_id
+        and
+            ssa.spu_id = ssav.spu_id
+
+        where ssa.spu_id = #{spuId}
+    </select>
+
 </mapper>

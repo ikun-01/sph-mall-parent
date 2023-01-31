@@ -18,6 +18,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>com.jing.mall</groupId>
             <artifactId>common-utils</artifactId>
             <version>1.0</version>
@@ -49,7 +55,15 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>7.0.2</version>
+        </dependency>
     </dependencies>
+
+
 
 
 </project>
