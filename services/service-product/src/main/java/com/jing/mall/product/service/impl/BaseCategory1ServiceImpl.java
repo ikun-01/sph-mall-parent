@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jing.mall.product.entity.BaseCategory1;
 import com.jing.mall.product.service.BaseCategory1Service;
 import com.jing.mall.product.mapper.BaseCategory1Mapper;
+import com.jing.mall.weball.vo.CategoryVo;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author Jing
@@ -15,6 +18,10 @@ import org.springframework.stereotype.Service;
 public class BaseCategory1ServiceImpl extends ServiceImpl<BaseCategory1Mapper, BaseCategory1>
     implements BaseCategory1Service{
 
+    @Override
+    public List<CategoryVo> getCategoryTree() {
+        return baseMapper.getCategoryTree();
+    }
 }
 
 

@@ -12,4 +12,31 @@
     <sql id="Base_Column_List">
         id,name
     </sql>
+
+    <resultMap id="categotyTreeVo" type="com.jing.mall.weball.vo.CategoryVo">
+        <id property="categoryId" column="c1id"/>
+        <result property="categoryName" column="c1name"/>
+        <collection property="categoryChild" ofType="com.jing.mall.weball.vo.CategoryVo">
+            <id property="categoryId" column="c2id"/>
+            <result property="categoryName" column="c2name"/>
+            <collection property="categoryChild" ofType="com.jing.mall.weball.vo.CategoryVo">
+                <id property="categoryId" column="c3id"/>
+                <result property="categoryName" column="c3name"/>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="getCategoryTree" resultMap="categotyTreeVo">
+        select
+            c1.id c1id,c1.name c1name,
+            c2.id c2id,c2.name c2name,
+            c3.id c3id,c3.name c3name
+        from
+            base_category1 c1
+        left join
+            base_category2 c2
+        on c1.id = c2.category1_id
+        left join
+            base_category3 c3
+        on c2.id = c3.category2_id
+    </select>
 </mapper>
