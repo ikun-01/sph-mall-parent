@@ -38,4 +38,36 @@
         where ssa.spu_id = #{spuId}
     </select>
 
+
+    <select id="getSpuSaleAttrAndValue" resultMap="spuSaleAttrResult">
+        select ssa.*,
+               spsv.id  sid,
+               spsv.sale_attr_value_name,
+               IF(sksv.sale_attr_value_id IS NULL, "0", "1") is_checked
+        from `spu_sale_attr` ssa
+                 left join spu_sale_attr_value spsv
+                           on ssa.spu_id = spsv.spu_id and ssa.base_sale_attr_id = spsv.base_sale_attr_id
+                 left join sku_sale_attr_value sksv
+                           on sksv.sale_attr_value_id = spsv.id and sksv.sku_id = #{skuId}
+        where ssa.spu_id = #{spuId}
+        order by ssa.base_sale_attr_id, spsv.id
+    </select>
+
+
+    <select id="getSpuSaleAttrJsonStr" resultType="com.jing.mall.product.vo.SkuAttrValueVo">
+        select a.sku_id,
+               group_concat(distinct a.sale_attr_value_id order by a.sale_attr_value_id asc separator '|') val
+        from (select ssav.sku_id, ssav.sale_attr_value_id
+              from sku_sale_attr_value ssav
+                       left join
+                   spu_sale_attr_value spav
+                   on
+                       ssav.sale_attr_value_id = spav.id
+              where sku_id
+                        in
+                    (select id from sku_info where spu_id = #{spuId})
+              order by ssav.id, spav.base_sale_attr_id, ssav.sale_attr_value_id) a
+        group by a.sku_id
+    </select>
+
 </mapper>

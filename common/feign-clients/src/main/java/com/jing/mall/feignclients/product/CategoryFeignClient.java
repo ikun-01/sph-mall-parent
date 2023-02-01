@@ -18,4 +18,5 @@ public interface CategoryFeignClient {
      */
     @GetMapping("/getCategoryTree")
     Result<List<CategoryVo>> getCategoryTree();
+
 }

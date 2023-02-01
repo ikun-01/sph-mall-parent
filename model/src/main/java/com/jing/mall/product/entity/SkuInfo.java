@@ -8,6 +8,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * 库存单元表
@@ -75,6 +76,12 @@ public class SkuInfo implements Serializable {
      */
     @TableField(value = "is_sale")
     private Integer isSale;
+
+    /**
+     * 商品对应的所有图片列表
+     */
+    @TableField(exist = false)
+    private List<SkuImage> skuImageList;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

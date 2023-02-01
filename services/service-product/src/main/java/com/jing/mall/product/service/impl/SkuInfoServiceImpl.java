@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -84,6 +85,10 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo>
         updateSkuSaleState(skuId,0);
     }
 
+    @Override
+    public BigDecimal getRealPrice(Long skuId) {
+       return baseMapper.getRealPrice(skuId);
+    }
 
 
     private void updateSkuSaleState(Long skuId,Integer status){

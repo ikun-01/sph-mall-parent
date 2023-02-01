@@ -1,8 +1,10 @@
 package com.jing.mall.product.mapper;
 
+import com.jing.mall.item.vo.CategoryView;
 import com.jing.mall.product.entity.BaseCategory1;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jing.mall.weball.vo.CategoryVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ public interface BaseCategory1Mapper extends BaseMapper<BaseCategory1> {
 
     List<CategoryVo> getCategoryTree();
 
+    CategoryView getCategoryView(@Param("category3Id") Long category3Id);
 }
 
 

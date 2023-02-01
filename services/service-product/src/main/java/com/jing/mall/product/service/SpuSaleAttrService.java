@@ -18,4 +18,20 @@ public interface SpuSaleAttrService extends IService<SpuSaleAttr> {
      * @return
      */
     List<SpuSaleAttr> getSpuSaleAttrList(Long spuId);
+
+    /**
+     * 根据 对应的spuId 和 skuId获取对应的销售属性列表和值
+     * @param spuId
+     * @param skuId
+     * @return
+     */
+    List<SpuSaleAttr> getSpuSaleAttrAndValue(Long spuId, Long skuId);
+
+
+    /**
+     * 获取该商品对应的同一个spu下的所有sku的组合
+     * @param spuId
+     * @return
+     */
+    String getSpuSaleAttrJsonStr(Long spuId);
 }

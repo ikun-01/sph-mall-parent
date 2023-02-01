@@ -26,4 +26,6 @@ public class CategoryRpcController {
         List<CategoryVo> categoryVos = baseCategory1Service.getCategoryTree();
         return Result.ok(categoryVos);
     }
+
+
 }
