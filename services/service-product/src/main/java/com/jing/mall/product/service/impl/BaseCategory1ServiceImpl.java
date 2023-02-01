@@ -1,6 +1,7 @@
 package com.jing.mall.product.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jing.mall.item.vo.CategoryView;
 import com.jing.mall.product.entity.BaseCategory1;
 import com.jing.mall.product.service.BaseCategory1Service;
 import com.jing.mall.product.mapper.BaseCategory1Mapper;
@@ -21,6 +22,11 @@ public class BaseCategory1ServiceImpl extends ServiceImpl<BaseCategory1Mapper, B
     @Override
     public List<CategoryVo> getCategoryTree() {
         return baseMapper.getCategoryTree();
+    }
+
+    @Override
+    public CategoryView getCategoryView(Long category3Id) {
+        return baseMapper.getCategoryView(category3Id);
     }
 }
 

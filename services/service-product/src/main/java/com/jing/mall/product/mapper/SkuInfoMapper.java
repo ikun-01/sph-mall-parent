@@ -2,6 +2,9 @@ package com.jing.mall.product.mapper;
 
 import com.jing.mall.product.entity.SkuInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.math.BigDecimal;
 
 /**
 * @author Jing
@@ -11,6 +14,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface SkuInfoMapper extends BaseMapper<SkuInfo> {
 
+    BigDecimal getRealPrice(@Param("skuId") Long skuId);
 }
 
 

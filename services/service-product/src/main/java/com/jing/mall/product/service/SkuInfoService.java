@@ -4,6 +4,8 @@ import com.jing.mall.product.entity.SkuInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jing.mall.product.vo.SkuInfoVo;
 
+import java.math.BigDecimal;
+
 /**
 * @author Jing
 * @description 针对表【sku_info(库存单元表)】的数据库操作Service
@@ -28,4 +30,12 @@ public interface SkuInfoService extends IService<SkuInfo> {
      * @param skuId
      */
     void cancelSale(Long skuId);
+
+
+    /**
+     * 获取商品的最新价格
+     * @param skuId
+     * @return
+     */
+    BigDecimal getRealPrice(Long skuId);
 }

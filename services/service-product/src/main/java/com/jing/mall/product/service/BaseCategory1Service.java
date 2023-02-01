@@ -1,5 +1,6 @@
 package com.jing.mall.product.service;
 
+import com.jing.mall.item.vo.CategoryView;
 import com.jing.mall.product.entity.BaseCategory1;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jing.mall.weball.vo.CategoryVo;
@@ -18,4 +19,11 @@ public interface BaseCategory1Service extends IService<BaseCategory1> {
      * @return
      */
     List<CategoryVo> getCategoryTree();
+
+    /***
+     * 获取该商品所属的分类信息
+     * @param skuId
+     * @return
+     */
+    CategoryView getCategoryView(Long skuId);
 }
